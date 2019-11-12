@@ -16,7 +16,7 @@ header {
     padding-top: 25px;
     height: 175px;
     background-color: aqua;
-    background: url('/assets/images/header-bg.jpg');
+    background: url('../../assets/images/header-bg.jpg');
     background-position: center;
     background-size: cover;
 }
