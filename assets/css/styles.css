@@ -1,0 +1,43 @@
+/* Font styles */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+/* General styles */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Header styles */
+header {
+    padding-top: 25px;
+    height: 175px;
+    background-color: aqua;
+    background: url('/assets/images/header-bg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ffffff;
+    padding-top: 52px;
+}
+
+.nav-tabs .nav-link {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: #000000;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#filter-text {
+    padding-top: 15px;
+    text-align: center;
+}
