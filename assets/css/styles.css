@@ -41,3 +41,9 @@ header {
     padding-top: 15px;
     text-align: center;
 }
+
+/* Section styles */
+
+section {
+    padding-top: 90px;
+}
