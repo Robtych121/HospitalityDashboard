@@ -10,53 +10,89 @@
 </head>
 <body>
 <header>
-    <div class="row">
+    <div class="row no-gutters">
         <div class="col-12">
             <h1>Hospitality Purchases</h1>
-        </div>
-        <div class="col-12">
-            <ul class="nav nav-tabs justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Average Order Value</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Number Of Orders Placed</a>
-                </li>
-            </ul>
-            <p id="filter-text">
-                <svg width="66" height="57">
-                    <g>
-                        <path stroke="#000" id="svg_3" d="m0.8835,56.56194l31.99604,-55.99306l31.99604,55.99306l-63.99207,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
-                    </g>
-                </svg>
-                Click To Filter The Results 
-                <svg width="66" height="57">
-                    <g>
-                        <path stroke="#000" id="svg_3" d="m0.8835,56.56194l31.99604,-55.99306l31.99604,55.99306l-63.99207,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
-                    </g>
-                </svg>
-            </p>
         </div>
     </div>
 </header>
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h2 class="text-center">By Product Group</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, cumque praesentium. Cum animi aliquid, mollitia, eveniet qui iure, dolores in id</p>
+        <div class="row no-gutters">
+            <div class="col-12">
+                <h2>Introduction</h2>
+                <p>This dashboard shows products purchased history for 2018 and 2019 to Date using data kindly provided by Direct Tableware. Please see below list of abbreviations used in the data to help you understand the results.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-6 padMargin">
+                <h3 class="text-center">By Product Group</h3>
+                <p>From the data, you can see that the product CR is the highest product group of items sold from the data, closely followed by GC and KW. You can see the TT and TA product groups aren't sold that much.</p>
                 <div id="byProductGroupChart"></div>
             </div>
-            <div class="col-6">
-                <h2 class="text-center">By Method</h2>
+            <div class="col-md-6 padMargin">
+                <h3 class="text-center">By Method</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil laboriosam voluptas iste repudiandae doloribus amet aliquid atque vero commodi.</p>
                 <div id="byMethodChart"></div>
             </div>
         </div>
     </div>
+    <hr>
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <h3>Abbreviations</h3>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Abbr</th>
+                        <th scope="col">Full Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>BF</td>
+                        <td>Buffetware</td>
+                      </tr>
+                      <tr>
+                        <td>BW</td>
+                        <td>Barware</td>
+                      </tr>
+                      <tr>
+                        <td>CR</td>
+                        <td>Crockery</td>
+                      </tr>
+                      <tr>
+                        <td>CT</td>
+                        <td>Cutlery</td>
+                      </tr>
+                      <tr>
+                        <td>GC</td>
+                        <td>Glassware</td>
+                      </tr>
+                      <tr>
+                        <td>KW</td>
+                        <td>Kitchenware</td>
+                      </tr>
+                      <tr>
+                        <td>TA</td>
+                        <td>Table Accessories</td>
+                      </tr>
+                      <tr>
+                        <td>TT</td>
+                        <td>Trays & Trolleys</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
 </section>
 <footer>
-
+    <p>Data Used Belongs to Direct Tableware</p>
 </footer>
 <script type="text/javascript" src="assets/js/d3.min.js"></script>
 <script type="text/javascript" src="assets/js/crossfilter.min.js"></script>

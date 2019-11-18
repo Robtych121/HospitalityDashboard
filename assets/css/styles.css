@@ -11,6 +11,10 @@ h1 {
     color: #ffffff;
 }
 
+.row .padMargin {
+    padding-right: 15px;
+}
+
 /* Header styles */
 header {
     padding-top: 25px;
@@ -45,5 +49,22 @@ header {
 /* Section styles */
 
 section {
-    padding-top: 90px;
+    padding-top: 30px;
+}
+
+/* Footer styles */
+
+footer {
+    background-color : #949494;
+    margin: 0;
+    padding: 0;
+    position: static;
+    height: 100px;
+    text-align: center;
+    padding-top: 15px;
+    color: #ffffff;
+}
+
+footer p {
+    margin: 0;
 }
