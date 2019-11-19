@@ -52,6 +52,11 @@ section {
     padding-top: 30px;
 }
 
+#year-selector {
+    float: none;
+    text-align: center;
+}
+
 /* Footer styles */
 
 footer {

@@ -10,11 +10,21 @@ function makeGraphs(error, data){
         d.source = d["Source"];
     }) 
 
+    show_year_selector(ndx);
     show_by_product_group(ndx);
     show_by_method_chart(ndx);
 
     dc.renderAll();
 
+}
+
+function show_year_selector(ndx) {
+    dim = ndx.dimension(dc.pluck('Year'));
+    group = dim.group();
+
+    dc.selectMenu("#year-selector")
+        .dimension(dim)
+        .group(group);
 }
 
 function show_by_product_group(ndx){
