@@ -4,15 +4,12 @@ queue()
 
 function makeGraphs(error, data){
     var ndx = crossfilter(data);
-    var formatDate = d3.time.format("%d/%m/%Y");
+    var formatDate = d3.time.format.utc("%d/%m/%Y");
 
 
      data.forEach(function(d){
-        d.code = d["Code"];
-        d.source = d["Source"];
-        d.documentDate = formatDate.parse(d["DocumentDate"]);       
-        d.StockUnitLineQuantity = d["StockUnitLineQuantity"];
-        d.LineTotalValue = parseFloat(d["LineTotalValue"]);
+        d["DocumentDate"] = formatDate.parse(d["DocumentDate"]);       
+        d["LineTotalValue"] = parseFloat(d["LineTotalValue"]);
 
     }) 
     show_year_selector(ndx);
@@ -105,8 +102,10 @@ function show_sales_by_method_chart(ndx){
 
 function show_by_month(ndx){
 
-    var dim = ndx.dimension(function(d) {return d.documentDate});
-    var group = dim.group().reduceSum(function(d) { return d.documentDate});
+    var dim = ndx.dimension(d => d3.time.month(d["DocumentDate"]));
+    var group = dim.group().reduceSum(function(d) { return d.Code})
+    var minDate = dim.bottom(1)[0]["DocumentDate"];
+    var maxDate = dim.top(1)[0]["DocumentDate"];
 
     dc.barChart("#byTimeChart")
         .width(1150)
@@ -115,7 +114,7 @@ function show_by_month(ndx){
         .dimension(dim)
         .group(group)
         .transitionDuration(500)
-        .x(d3.time.scale())
+        .x(d3.time.scale().domain([minDate, maxDate]))
         .xUnits(d3.time.months)
         .xAxisLabel("Month")
         .yAxisLabel("Count Of Items")
