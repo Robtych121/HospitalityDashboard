@@ -129,7 +129,7 @@ function show_by_month(ndx){
         .valueAccessor(function (d) {
                   return d.value.total;
               })
-        .brushOn(false)
+        .brushOn(true)
         .mouseZoomable(false)
         .renderHorizontalGridLines(true)
         .renderArea(true)
