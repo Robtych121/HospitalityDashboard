@@ -117,14 +117,8 @@ function show_by_month(ndx){
         }
     );
 
-    //.reduceSum(function(d) { return d.Code});
-
-
-
-
     var minDate = dim.bottom(1)[0]["DocumentDate"];
     var maxDate = dim.top(1)[0]["DocumentDate"];
-    console.log(minDate);
 
     dc.lineChart("#byTimeChart")
         .width(1150)
