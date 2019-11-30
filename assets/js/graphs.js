@@ -102,21 +102,46 @@ function show_sales_by_method_chart(ndx){
 
 function show_by_month(ndx){
 
-    var dim = ndx.dimension(d => d3.time.month(d["DocumentDate"]));
-    var group = dim.group().reduceSum(function(d) { return d.Code})
+    var dim = ndx.dimension(function(d) { return d3.time.month(d.DocumentDate)});
+    var group = dim.group().reduce(
+        function (p, v) {
+            p.total += v.LineTotalValue ;
+            return p;
+        },
+        function (p, v) {
+            p.total -= v.LineTotalValue ;
+            return p;
+        },
+        function () {
+            return {total: 0};
+        }
+    );
+
+    //.reduceSum(function(d) { return d.Code});
+
+
+
+
     var minDate = dim.bottom(1)[0]["DocumentDate"];
     var maxDate = dim.top(1)[0]["DocumentDate"];
+    console.log(minDate);
 
-    dc.barChart("#byTimeChart")
+    dc.lineChart("#byTimeChart")
         .width(1150)
         .height(450)
-        .margins({top: 20, right: 50, bottom: 50, left: 70})
+        .margins({top:10,bottom:30,right:50, left:50})
         .dimension(dim)
         .group(group)
-        .transitionDuration(500)
+        .valueAccessor(function (d) {
+                  return d.value.total;
+              })
+        .brushOn(false)
+        .mouseZoomable(false)
+        .renderHorizontalGridLines(true)
+        .renderArea(true)
+        .renderDataPoints([{fillOpacity: 0.8, strokeOpacity: 1.0, radius: 4}])
+        .yAxisLabel("Sales Value")
         .x(d3.time.scale().domain([minDate, maxDate]))
-        .xUnits(d3.time.months)
-        .xAxisLabel("Month")
-        .yAxisLabel("Count Of Items")
-        .yAxis().ticks(10)
+        .xUnits(d3.time.month)
+        .yAxis().ticks(12);
 }
