@@ -45,6 +45,7 @@ function show_by_product_group(ndx){
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
+        .useViewBoxResizing(true)
         .xAxisLabel("Product Group")
         .yAxisLabel("Count Of Items")
         .yAxis().ticks(10);
@@ -64,6 +65,7 @@ function show_sales_by_product_group(ndx){
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Product Group")
+        .useViewBoxResizing(true)
         .yAxisLabel("Sales Value")
         .yAxis().ticks(10);
 }
@@ -80,6 +82,7 @@ function show_by_method_chart(ndx){
         .dimension(dim)
         .group(group)
         .externalRadiusPadding(100)
+        .useViewBoxResizing(true)
         .ordinalColors(['red','green','blue'])
         .legend(dc.legend().x(50).y(20).itemHeight(25).gap(3));
 }
@@ -96,6 +99,7 @@ function show_sales_by_method_chart(ndx){
         .dimension(dim)
         .group(group)
         .externalRadiusPadding(100)
+        .useViewBoxResizing(true)
         .ordinalColors(['red','green','blue'])
         .legend(dc.legend().x(50).y(20).itemHeight(25).gap(3));
 }
