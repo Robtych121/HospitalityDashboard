@@ -10,7 +10,7 @@ The website was designed with a corporate feel to it as it's going to be used by
 
 Because of this, the web page has a clean layout and everything has it's own section to the users can find the information they need easily.
 
-I created a wireframe of the general layout of the page for both desktop and mobiles. This can be found under the Wireframes folder.
+I created a wireframe of the general layout of the page for both desktop and mobiles. This can be found under the Wireframes folder. The final website has extra charts on the page to enhance the dashboards information that is available to the user.
 
 ## Features
 This website uses the data visualisation scripts D3, DC, Queue and Crossfilter to display a CSV file in a dashboard like web page. The page is structured using Bootstrap so it can also be used on mobiles without any issues.
@@ -25,7 +25,29 @@ I would like to implement an heat map using postcodes that shows all the differe
 4. D3, DC, Queue, Crossfilter
 
 ## Testing
+I have achieve the user story for the company managers as i was able to provide them with the following:
+* They are able to see the sales data in an easy to read format where they can discern the outcome with a glance
+* The charts are grouped by type so that they aren't going to get lost at which data they are looking at
+* All the charts crossfilters are working so when you filter on one chart, it filters the rest to be more meaningful for the user
+* A glossary was added at the bottom of the page to help those who aren't familar with the terminology used
+* The whole page has also been made mobile responsive so that it can be viewed on mobile devices such as phones or tablets
 
+#### Mobile Responsive Testing
+The responsiveness of the website was tested using Google Devtools and using my own mobile android device (Using Google Chrome).
+
+#### Cross Browser Testing
+The website was tested using the following browsers:
+1. Google Chrome
+2. Firefox
+3. Microsoft Edge
+
+#### Code Validators
+The website has been tested through the following:
+1. W3C HTML Markup Validation Service
+2. W3C CSS Validation Service (Jigsaw)
+
+#### Other Testing
+Due to the nature of the website, I wasn't able to use automated testing for this project. To ensure that the correct details were correct, i had manually checked the data against what was being displayed. For Example. Count of Items By Product Group completely unfiltered should say 4931 under CR, this was then checked against the CSV file.
 
 ## Deployment
 This website is hosted using the Github pages, using the master branch. Because of this, everytime i push across changes using Git, the website is automatically updated without any additional input from myself. When creating the website, i had to ensure that the main file for the website was index.html otherwise browsers wouldnt be able to load it properly.
@@ -41,5 +63,8 @@ If you want to run a copy of this website locally, please follow the following i
 #### Media
 Header Image - Lighted Hallway By Tim Savage [image](https://www.pexels.com/photo/architecture-carpet-chandeliers-design-573552/)
 
-#### Acknowledgements
+#### Content
 Data Provided - The data used in this project was provided by Direct Tableware [link](https://www.directtableware.com)
+
+#### Acknowledgements
+I had used stack overflow articles to help with this project (getting data to display properly for the line chart) This article was the most used [link](https://stackoverflow.com/questions/47294588/dc-js-linechart-aggregated-by-month-year)
