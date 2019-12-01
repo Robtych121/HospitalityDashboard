@@ -137,5 +137,6 @@ function show_by_month(ndx){
         .yAxisLabel("Sales Value")
         .x(d3.time.scale().domain([minDate, maxDate]))
         .xUnits(d3.time.month)
+        .useViewBoxResizing(true)
         .yAxis().ticks(12);
 }
