@@ -11,7 +11,7 @@ function makeGraphs(error, data){
         d["DocumentDate"] = formatDate.parse(d["DocumentDate"]);       
         d["LineTotalValue"] = parseFloat(d["LineTotalValue"]);
 
-    }) 
+    }); 
     show_year_selector(ndx);
     show_by_product_group(ndx);
     show_by_method_chart(ndx);
@@ -53,7 +53,7 @@ function show_by_product_group(ndx){
 
 function show_sales_by_product_group(ndx){
     var dim = ndx.dimension(dc.pluck('Code'));
-    var group = dim.group().reduceSum(function(d) { return d.LineTotalValue});
+    var group = dim.group().reduceSum(function(d) { return d.LineTotalValue;});
 
     dc.barChart("#SalesbyProductGroupChart")
         .width(550)
@@ -89,7 +89,7 @@ function show_by_method_chart(ndx){
 
 function show_sales_by_method_chart(ndx){
     var dim = ndx.dimension(dc.pluck('Source'));
-    var group = dim.group().reduceSum(function(d) { return d.LineTotalValue});
+    var group = dim.group().reduceSum(function(d) { return d.LineTotalValue;});
 
     dc.pieChart("#SalesbyMethodChart")
         .width(550)
@@ -106,7 +106,7 @@ function show_sales_by_method_chart(ndx){
 
 function show_by_month(ndx){
 
-    var dim = ndx.dimension(function(d) { return d3.time.month(d.DocumentDate)});
+    var dim = ndx.dimension(function(d) { return d3.time.month(d.DocumentDate);});
     var group = dim.group().reduce(
         function (p, v) {
             p.total += v.LineTotalValue ;
