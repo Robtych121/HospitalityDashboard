@@ -45,6 +45,7 @@ The website was tested using the following browsers:
 The website has been tested through the following:
 1. W3C HTML Markup Validation Service
 2. W3C CSS Validation Service (Jigsaw)
+3. JSHint.com to Validate the JS script
 
 #### Other Testing
 Due to the nature of the website, I wasn't able to use automated testing for this project. To ensure that the correct details were correct, i had manually checked the data against what was being displayed. For Example. Count of Items By Product Group completely unfiltered should say 4931 under CR, this was then checked against the CSV file.
