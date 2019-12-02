@@ -47,11 +47,21 @@ The website has been tested through the following:
 2. W3C CSS Validation Service (Jigsaw)
 3. JSHint.com to Validate the JS script
 
+#### User Testing
+This page was given to the company Director and he was extremely pleased with how the page was layed out and has even asked me about linking it properly to a database rather a CSV file in the future.
+
 #### Other Testing
 Due to the nature of the website, I wasn't able to use automated testing for this project. To ensure that the correct details were correct, i had manually checked the data against what was being displayed. For Example. Count of Items By Product Group completely unfiltered should say 4931 under CR, this was then checked against the CSV file.
 
 ## Deployment
-This website is hosted using the Github pages, using the master branch. Because of this, everytime i push across changes using Git, the website is automatically updated without any additional input from myself. When creating the website, i had to ensure that the main file for the website was index.html otherwise browsers wouldnt be able to load it properly.
+This website is hosted using the Github pages, using the master branch. Because of this, everytime i push across changes using Git, the website is automatically updated without any additional input from myself. When creating the website, i had to ensure that the main file for the website was index.html otherwise browsers wouldnt be able to load it properly. To set this up, i did the following:
+1. Within the project folder, i started a empty repo using `git init`
+2. Created the .gitignore file to ignore certain files
+3. Ran the first git commit using `git add .` and `git commit -m "Initial Commit"`
+4. Went to Github and created a repo there and then linked it to my local one using the following command `git remote add origin https://github.com/Robtych121/HospitalityDashboard.git`
+5. Pushed the first commit to Github using `git push -u origin master`
+6. Once it was pushed to Github, i went into Settings > Github Pages and uses the master branch as the source to publish to Github Pages
+
 
 If you want to run a copy of this website locally, please follow the following instructions:
 1. Within your chosen editor/terminal, run the following command `git clone https://github.com/Robtych121/HospitalityDashboard.git`
