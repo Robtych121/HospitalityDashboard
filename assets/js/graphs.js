@@ -1,12 +1,14 @@
+// load the graphs once the data has been loaded fully
 queue()
     .defer(d3.csv, "assets/data/data.csv")
     .await(makeGraphs);
 
 function makeGraphs(error, data){
     var ndx = crossfilter(data);
+    // converts the dates from using the dd/mm/yyyy format
     var formatDate = d3.time.format.utc("%d/%m/%Y");
 
-
+    // formats the fields into usable data other than strings
      data.forEach(function(d){
         d["DocumentDate"] = formatDate.parse(d["DocumentDate"]);       
         d["LineTotalValue"] = parseFloat(d["LineTotalValue"]);
@@ -23,6 +25,7 @@ function makeGraphs(error, data){
 
 }
 
+// creates the select year dropdown
 function show_year_selector(ndx) {
     dim = ndx.dimension(dc.pluck('Year'));
     group = dim.group();
@@ -32,6 +35,8 @@ function show_year_selector(ndx) {
         .group(group);
 }
 
+
+// creates the count of items by product group barchart
 function show_by_product_group(ndx){
     var dim = ndx.dimension(dc.pluck('Code'));
     var group = dim.group();
@@ -51,6 +56,7 @@ function show_by_product_group(ndx){
         .yAxis().ticks(10);
 }
 
+// create the sales value by product group barchart
 function show_sales_by_product_group(ndx){
     var dim = ndx.dimension(dc.pluck('Code'));
     var group = dim.group().reduceSum(function(d) { return d.LineTotalValue;});
@@ -70,6 +76,7 @@ function show_sales_by_product_group(ndx){
         .yAxis().ticks(10);
 }
 
+// creates the count of items by method pie chart
 function show_by_method_chart(ndx){
     var dim = ndx.dimension(dc.pluck('Source'));
     var group = dim.group();
@@ -87,6 +94,7 @@ function show_by_method_chart(ndx){
         .legend(dc.legend().x(50).y(20).itemHeight(25).gap(3));
 }
 
+// creates the sales value by method pie chart
 function show_sales_by_method_chart(ndx){
     var dim = ndx.dimension(dc.pluck('Source'));
     var group = dim.group().reduceSum(function(d) { return d.LineTotalValue;});
@@ -104,6 +112,7 @@ function show_sales_by_method_chart(ndx){
         .legend(dc.legend().x(50).y(20).itemHeight(25).gap(3));
 }
 
+// shows the sales value by time line chart
 function show_by_month(ndx){
 
     var dim = ndx.dimension(function(d) { return d3.time.month(d.DocumentDate);});
